@@ -5,6 +5,7 @@ import style from './App.module.css';
 import { useGetContactsQuery } from '../redux/contactsApi';
 import { Toaster } from 'react-hot-toast';
 import Loader from "../components/Loader/Loader";
+import LoginForm from '../components/LoginForm/LoginForm';
 
 function App() {
   const { data, isLoading } = useGetContactsQuery();
@@ -23,6 +24,7 @@ function App() {
       {!isLoading && <ContactList
         data={data}
       />}
+      <LoginForm />
       <Toaster />
     </div>
   );
