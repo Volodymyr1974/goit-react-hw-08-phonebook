@@ -13,13 +13,16 @@ const styles = {
     },
 };
 
-export default function LoginForm() {
+export default function RegisterForm() {
     const dispatch = useDispatch();
+    const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleChange = ({ target: { name, value } }) => {
         switch (name) {
+            case 'name':
+                return setName(value);
             case 'email':
                 return setEmail(value);
             case 'password':
@@ -31,16 +34,22 @@ export default function LoginForm() {
 
     const handleSubmit = e => {
         e.preventDefault();
-        dispatch(operations.logIn({ email, password }));
+        dispatch(operations.register({ name, email, password }));
+        setName('');
         setEmail('');
         setPassword('');
     };
 
     return (
         <div>
-            <h1>Страница логина</h1>
+            <h1>Страница регистрации</h1>
 
             <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
+                <label style={styles.label}>
+                    Имя
+                    <input type="text" name="name" value={name} onChange={handleChange} />
+                </label>
+
                 <label style={styles.label}>
                     Почта
                     <input
@@ -61,7 +70,7 @@ export default function LoginForm() {
                     />
                 </label>
 
-                <button type="submit">Войти</button>
+                <button type="submit">Зарегистрироваться</button>
             </form>
         </div>
     );
