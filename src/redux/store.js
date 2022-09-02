@@ -7,7 +7,7 @@ export const store = configureStore({
   reducer: {
     auth: authSlice.reducer,
     [contactsApi.reducerPath]: contactsApi.reducer,
-    contacts: contactsSlice.reducer,
+    filtercontacts: contactsSlice.reducer,
   },
   middleware: getDefaultMiddleware => [
     ...getDefaultMiddleware(),

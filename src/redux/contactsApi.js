@@ -1,20 +1,38 @@
+//
+
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import authSelectors from './auth/authSelectors';
+
+// import { useSelector } from 'react-redux';
+const baseQuery = fetchBaseQuery({
+  baseUrl: 'https://connections-api.herokuapp.com',
+  prepareHeaders: (headers, { getState }) => {
+    const token = getState().auth.token;
+    console.log(token);
+    // const token = getState().auth.token;
+
+    // If we have a token set in state, let's assume that we should be passing it.
+    if (token) {
+      headers.set('authorization', `Bearer ${token}`);
+    }
+
+    return headers;
+  },
+});
 
 export const contactsApi = createApi({
   reducerPath: 'newcontacts',
-  baseQuery: fetchBaseQuery({
-    baseUrl: 'https://6307cb873a2114bac76bd05e.mockapi.io/',
-  }),
+  baseQuery,
   tagTypes: ['Contacts'],
   endpoints: builder => ({
     getContacts: builder.query({
-      query: () => '/newcontacts',
+      query: () => '/contacts',
       providesTags: ['Contacts'],
     }),
 
     addContact: builder.mutation({
       query: values => ({
-        url: '/newcontacts',
+        url: '/contacts',
         method: 'POST',
         body: values,
       }),
@@ -22,7 +40,7 @@ export const contactsApi = createApi({
     }),
     deleteContact: builder.mutation({
       query: id => ({
-        url: `/newcontacts/${id}`,
+        url: `/contacts/${id}`,
         method: 'DELETE',
       }),
       invalidatesTags: ['Contacts'],

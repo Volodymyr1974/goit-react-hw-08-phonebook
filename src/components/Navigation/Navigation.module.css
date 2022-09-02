@@ -1,0 +1,15 @@
+.mainNavList {
+  display: flex;
+}
+.mainNavItem {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+}
+.activeLink {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  margin-right: 10px;
+}

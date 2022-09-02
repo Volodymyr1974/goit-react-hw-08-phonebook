@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 export const contactsSlice = createSlice({
-  name: 'contacts',
+  name: 'filtercontacts',
   initialState: {
     filter: '',
   },
@@ -15,4 +16,4 @@ export const contactsSlice = createSlice({
 export const { changeFilter } = contactsSlice.actions;
 
 // Селектори
-export const getFilter = state => state.contacts.filter;
+export const getFilter = state => state.filtercontacts.filter;

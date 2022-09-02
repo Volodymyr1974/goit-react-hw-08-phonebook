@@ -7,6 +7,7 @@ const ContactList = () => {
     const { data } = useGetContactsQuery();
     const filter = useSelector(getFilter);
     const normalizedFilter = filter.toLowerCase();
+    if (data === undefined) { return }
     const items = data.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
 
     return (
