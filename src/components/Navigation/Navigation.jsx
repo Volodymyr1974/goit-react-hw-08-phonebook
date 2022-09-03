@@ -16,9 +16,7 @@ export function Navigation() {
                 className={({ isActive }) =>
                     isActive ? styles.activeLink : styles.mainNavItem
                 }
-            >
-                Home
-            </NavLink>
+            >Home </NavLink>
             {isLoggedIn && (<NavLink
                 to="contacts"
                 className={({ isActive }) =>

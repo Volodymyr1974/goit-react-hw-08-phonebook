@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from './ContactForm.module.css';
 import toast from 'react-hot-toast';
+// import Button from '@mui/material/Button';
 import { useAddContactMutation, useGetContactsQuery } from '../../redux/contactsApi';
 
 
@@ -81,8 +82,11 @@ const ContactForm = () => {
                 </label>
 
                 <button
-                    type="submit" className={style.form_button} disabled={isLoading}> Add contact</button>
-            </form></div>
+                    type="submit" className={style.form_button} disabled={isLoading}>
+                    Add contact
+                </button>
+            </form>
+        </div>
     );
 };
 

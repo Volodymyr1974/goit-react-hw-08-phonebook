@@ -62,23 +62,7 @@ function App() {
           {/* <Route path="*" element={<PageNotFound />} /> */}
         </Routes>
       </Suspense>
-      {/* <div className={style.box}>
-        <h1>Phonebook</h1>
-        <ContactForm
-          data={data}
-        />
-        <h2>Contacts</h2>
-        <Filter
-        />
-        {isLoading && < Loader />}
-        {!isLoading && <ContactList
-          data={data}
-        />}
-        <RegisterForm />
-        <LoginForm />
-        <UserMenu />
 
-      </div> */}
       <Toaster />
     </>
 

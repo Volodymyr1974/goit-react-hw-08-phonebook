@@ -2,6 +2,7 @@ import ContactItem from 'components/ContactItem/ContactItem';
 import { useSelector } from 'react-redux';
 import { getFilter } from "redux/contactsSlice";
 import { useGetContactsQuery } from '../../redux/contactsApi';
+import style from '../ContactList/ContactList.module.css';
 
 const ContactList = () => {
     const { data } = useGetContactsQuery({}, { refetchOnMountOrArgChange: true });
@@ -12,7 +13,7 @@ const ContactList = () => {
     const items = data.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
 
     return (
-        <ul >
+        <ul className={style.list}>
             {(items.map(({ id, name, number }) => (
                 <li key={id}>
                     <ContactItem

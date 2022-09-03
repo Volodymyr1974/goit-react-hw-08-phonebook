@@ -1,5 +1,7 @@
 .mainNavList {
   display: flex;
+  padding: 0;
+  font-size: 20px;
 }
 .mainNavItem {
   color: black;
@@ -8,7 +10,7 @@
   margin-right: 10px;
 }
 .activeLink {
-  color: black;
+  color: rgb(216, 104, 44);
   text-decoration: none;
   font-weight: 600;
   margin-right: 10px;

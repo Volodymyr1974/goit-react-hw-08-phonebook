@@ -17,7 +17,7 @@ const ContactItem = ({ id, name, number }) => {
     };
     return (
         <div className={style.item}>
-            {`${name} :  ${number}`}
+            {`${name} :      ${number}`}
             <button className={style.item_button}
                 onClick={() => handleDeleteContact(id)}
                 disabled={isLoading}
@@ -25,13 +25,7 @@ const ContactItem = ({ id, name, number }) => {
             >
                 Delete
             </button>
-            <button className={style.item_button}
-                // onClick={() => handleDeleteContact(id)}
-                disabled={isLoading}
-                type="button"
-            >
-                Edit
-            </button>
+
         </div>
 
 
