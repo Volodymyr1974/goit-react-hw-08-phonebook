@@ -1,6 +1,6 @@
-import ContactForm from '../ContactForm/ContactForm';
-import Filter from '../Filter/Filter';
-import ContactList from '../ContactList/ContactList';
+import ContactForm from '../../components/ContactForm/ContactForm';
+import Filter from '../../components/Filter/Filter';
+import ContactList from '../../components/ContactList/ContactList';
 import { useGetContactsQuery } from '../../redux/contactsApi';
 import authSelectors from 'redux/auth/authSelectors';
 import { useSelector } from 'react-redux';
