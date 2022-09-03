@@ -13,6 +13,7 @@ import storage from 'redux-persist/lib/storage';
 import { contactsSlice } from './contactsSlice';
 import { contactsApi } from './contactsApi';
 import { authSlice } from './auth/authSlice';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 // const middleware = [
 //   ...getDefaultMiddleware({
@@ -43,4 +44,5 @@ export const store = configureStore({
     contactsApi.middleware,
   ],
 });
+setupListeners(store.dispatch);
 export const persistor = persistStore(store);

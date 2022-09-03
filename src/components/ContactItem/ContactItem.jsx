@@ -25,6 +25,13 @@ const ContactItem = ({ id, name, number }) => {
             >
                 Delete
             </button>
+            <button className={style.item_button}
+                // onClick={() => handleDeleteContact(id)}
+                disabled={isLoading}
+                type="button"
+            >
+                Edit
+            </button>
         </div>
 
 
