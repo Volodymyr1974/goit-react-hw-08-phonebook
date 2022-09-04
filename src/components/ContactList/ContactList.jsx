@@ -8,7 +8,7 @@ const ContactList = () => {
     const { data } = useGetContactsQuery({}, { refetchOnMountOrArgChange: true });
     const filter = useSelector(getFilter);
     const normalizedFilter = filter.toLowerCase();
-    console.log(data);
+
     if (data === undefined) { return }
     const items = data.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
 

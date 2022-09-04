@@ -4,9 +4,7 @@ const baseQuery = fetchBaseQuery({
   baseUrl: 'https://connections-api.herokuapp.com',
   prepareHeaders: (headers, { getState }) => {
     const token = getState().auth.token;
-    console.log(getState());
-    console.log(token);
-   
+
     if (token) {
       headers.set('authorization', `Bearer ${token}`);
     }
