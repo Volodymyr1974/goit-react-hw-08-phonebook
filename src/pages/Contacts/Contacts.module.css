@@ -1,7 +1,9 @@
 .container {
-  margin: 0 auto;
-
-  width: 1600px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
 }
 .container_title {
   text-align: center;

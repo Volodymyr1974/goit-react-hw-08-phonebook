@@ -1,6 +1,6 @@
 .form_box {
-  width: 600px;
-  margin: 0 auto;
+  width: 500px;
+  margin: 0;
   margin-bottom: 15px;
   padding-bottom: 25px;
   display: flex;
@@ -48,4 +48,8 @@
 .form_button:hover,
 .form_button:focus {
   background-color: rgb(135, 168, 235);
+}
+.container_title {
+  text-align: center;
+  font-weight: 400;
 }

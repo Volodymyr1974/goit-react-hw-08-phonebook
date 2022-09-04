@@ -1,17 +1,9 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import operations from '../../redux/auth/authOperations';
-
-const styles = {
-    form: {
-        width: 320,
-    },
-    label: {
-        display: 'flex',
-        flexDirection: 'column',
-        marginBottom: 15,
-    },
-};
+import TextField from '@mui/material/TextField';
+import { Button } from '@mui/material';
+import style from '../RegisterForm/RegisterForm.module.css';
 
 export default function RegisterForm() {
     const dispatch = useDispatch();
@@ -41,36 +33,86 @@ export default function RegisterForm() {
     };
 
     return (
-        <div>
-            <h1>Страница регистрации</h1>
+        <div className={style.container}>
+            <h1 className={style.container_title}>Registration page</h1>
 
-            <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-                <label style={styles.label}>
-                    Имя
-                    <input type="text" name="name" value={name} onChange={handleChange} />
-                </label>
+            <form onSubmit={handleSubmit} className={style.container_form} autoComplete="off">
+                <TextField
+                    id="standard-basic"
+                    label="Name"
+                    name="name"
+                    type="text"
+                    variant="standard"
+                    value={name}
+                    pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
+                    title="Name may contain only letters, apostrophe, dash and spaces. A name cannot begin with a space."
+                    onChange={handleChange}
+                    sx={{
+                        margin: '0 auto',
+                        display: 'block',
+                        width: 320,
+                        marginBottom: 4,
+                        '& .MuiInputLabel-root': {
+                            left: 0,
+                        },
+                    }}
+                />
 
-                <label style={styles.label}>
-                    Почта
-                    <input
-                        type="email"
-                        name="email"
-                        value={email}
-                        onChange={handleChange}
-                    />
-                </label>
+                <TextField
+                    id="standard-basic"
+                    label="Email"
+                    name="email"
+                    type="email"
+                    variant="standard"
+                    value={email}
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+                    title="For example: johndoe@mail.com"
+                    onChange={handleChange}
+                    sx={{
+                        margin: '0 auto',
+                        display: 'block',
+                        width: 320,
+                        marginBottom: 4,
+                        '& .MuiInputLabel-root': {
+                            left: 0,
+                        },
+                    }}
+                />
 
-                <label style={styles.label}>
-                    Пароль
-                    <input
-                        type="password"
-                        name="password"
-                        value={password}
-                        onChange={handleChange}
-                    />
-                </label>
+                <TextField
+                    id="standard-basic"
+                    label="Password"
+                    name="password"
+                    type="password"
+                    variant="standard"
+                    value={password}
+                    pattern=".{8,}"
+                    title="Eight or more characters"
+                    onChange={handleChange}
+                    sx={{
+                        margin: ' auto',
+                        display: 'block',
+                        width: 320,
+                        marginBottom: 4,
+                        '& .MuiInputLabel-root': {
+                            left: 0,
+                        },
+                    }}
+                />
 
-                <button type="submit">Зарегистрироваться</button>
+
+                <Button
+                    sx={{
+                        marginLeft: 4,
+                        minWidth: 100,
+                        marginBottom: 4,
+
+                    }}
+                    type="submit"
+                    variant="text"
+                >
+                    Submit
+                </Button>
             </form>
         </div>
     );

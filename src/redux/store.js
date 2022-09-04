@@ -15,14 +15,6 @@ import { contactsApi } from './contactsApi';
 import { authSlice } from './auth/authSlice';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-// const middleware = [
-//   ...getDefaultMiddleware({
-//     serializableCheck: {
-//       ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//     },
-//   }),
-// ];
-
 const authPersistConfig = {
   key: 'auth',
   storage,

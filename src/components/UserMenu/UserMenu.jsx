@@ -1,34 +1,37 @@
 import { useDispatch, useSelector } from 'react-redux';
 import authSelectors from '../../redux/auth/authSelectors';
-import styles from '../UserMenu/UserMenu.module.css';
+import style from '../UserMenu/UserMenu.module.css';
 import operations from '../../redux/auth/authOperations';
-
-// const styles = {
-//     container: {
-//         display: 'flex',
-//         alignItems: 'center',
-//     },
-//     avatar: {
-//         marginRight: 4,
-//     },
-//     name: {
-//         fontWeight: 700,
-//         marginRight: 12,
-//     },
-// };
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
+import defaultAvatar from './icon.png';
 
 export default function UserMenu() {
     const dispatch = useDispatch();
     const name = useSelector(authSelectors.getUsername);
-    // const avatar = defaultAvatar;
+
+    const avatar = defaultAvatar;
 
     return (
-        <div className={styles.container}>
-            {/* <img src={avatar} alt="" width="32" style={styles.avatar} /> */}
-            <span className={styles.name}>Добро пожаловать, {name}</span>
-            <button type="button" onClick={() => dispatch(operations.logOut())}>
-                Выйти
-            </button>
+        <div className={style.container}>
+            <img src={avatar} alt="" width="32" className={style.avatar} />
+            <span className={style.name}>Welcome, {name}</span>
+            <Button
+                sx={{
+                    color: '#f1f3f5',
+                    fontWeight: 600,
+                    fontSize: '18px',
+                    padding: '3px 8px',
+                    textTransform: 'none',
+                }}
+                type="button"
+                onClick={() => dispatch(operations.logOut())}
+                variant="text"
+                endIcon={<LogoutIcon />}
+            >
+                Log Out
+            </Button>
+
         </div>
     );
 }

@@ -1,9 +1,7 @@
 import React, { useState } from "react";
 import style from './ContactForm.module.css';
 import toast from 'react-hot-toast';
-// import Button from '@mui/material/Button';
 import { useAddContactMutation, useGetContactsQuery } from '../../redux/contactsApi';
-
 
 const ContactForm = () => {
     const { data } = useGetContactsQuery({}, { refetchOnMountOrArgChange: true });
@@ -31,10 +29,10 @@ const ContactForm = () => {
     const handleAddContact = async values => {
         try {
             await addContact(values);
-            toast.success('Контакт додано');
+            toast.success('Contact added');
             resetForm();
         } catch (error) {
-            toast.error('Помилка при додаваннi контакту');
+            toast.error('Error adding contact');
             console.log(error);
         }
     };
@@ -44,7 +42,7 @@ const ContactForm = () => {
         contactsItems.some(
             contact => contact.name.toLowerCase() === name.toLowerCase()
         ) ?
-            (toast.error(`Упс...Контакт ${name} вже є у Вашому списку `)) :
+            (toast.error(`Contact ${name} already exists in your list `)) :
             (handleAddContact(contactData));
     };
 
@@ -53,7 +51,7 @@ const ContactForm = () => {
     };
 
     return (
-        <div className={style.form_box}>
+        <div className={style.form_box}> <h2 className={style.container_title} >Form to add a contact</h2>
             <form onSubmit={handleSubmit}>
                 <label>
                     <p className={style.form_label}> Name</p>

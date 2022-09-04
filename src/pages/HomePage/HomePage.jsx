@@ -4,7 +4,7 @@ export default function Home() {
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>
-                Вітаю на сервісі для збергіання Твоїх телефонних контактів...
+                Welcome to the service for storing your phone contacts...
             </h2>
         </div>
     );

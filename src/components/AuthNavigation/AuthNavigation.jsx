@@ -1,30 +1,45 @@
 import styles from './AuthNavigation.module.css';
 import { NavLink } from 'react-router-dom';
-// import Button from '@mui/material/Button';
-// import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
-// import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
+import Button from '@mui/material/Button';
+import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
+import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 export function AuthNavigation() {
     return (
         <ul className={styles.authNavList}>
-
-            <NavLink
-                to="/register"
-                className={({ isActive }) =>
-                    isActive ? styles.activeLink : styles.authNavItem
-                }
+            <Button
+                sx={{
+                    color: '#f1f3f5',
+                    marginRight: 3,
+                    fontSize: '18px',
+                }}
+                variant="text"
+                endIcon={<AssignmentIndOutlinedIcon />}
             >
-                sign up
-            </NavLink>
+                <NavLink
+                    to="/register"
+                    className={({ isActive }) =>
+                        isActive ? styles.activeLink : styles.authNavItem}
+                >
+                    sign up
+                </NavLink>
+            </Button>
 
-
-            <NavLink
-                to="/login"
-                className={({ isActive }) =>
-                    isActive ? styles.activeLink : styles.authNavItem
-                }
+            <Button
+                sx={{
+                    color: '#f1f3f5',
+                    fontSize: '18px',
+                }}
+                variant="text"
+                endIcon={<LoginOutlinedIcon />}
             >
-                Log In
-            </NavLink>
+                <NavLink
+                    to="/login"
+                    className={({ isActive }) =>
+                        isActive ? styles.activeLink : styles.authNavItem}
+                >
+                    Log In
+                </NavLink>
+            </Button>
 
         </ul>
     );

@@ -1,0 +1,12 @@
+.container {
+  margin: 0 auto;
+  width: 320px;
+}
+.container_title {
+  font-weight: 400;
+  text-align: center;
+}
+.container_form {
+  width: 320;
+  padding-left: 60px;
+}

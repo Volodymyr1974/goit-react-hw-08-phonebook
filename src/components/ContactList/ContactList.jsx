@@ -12,7 +12,8 @@ const ContactList = () => {
     if (data === undefined) { return }
     const items = data.filter(contact => contact.name.toLowerCase().includes(normalizedFilter));
 
-    return (
+    return (<div>
+        <h2 className={style.container_title}>Your contacts</h2>
         <ul className={style.list}>
             {(items.map(({ id, name, number }) => (
                 <li key={id}>
@@ -25,6 +26,8 @@ const ContactList = () => {
                 </li>
             )))}
         </ul>
+    </div>
+
     );
 };
 
