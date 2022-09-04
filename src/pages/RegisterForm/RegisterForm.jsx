@@ -38,7 +38,7 @@ export default function RegisterForm() {
 
             <form onSubmit={handleSubmit} className={style.container_form} autoComplete="off">
                 <TextField
-                    id="standard-basic"
+                    id="name"
                     label="Name"
                     name="name"
                     type="text"
@@ -59,7 +59,7 @@ export default function RegisterForm() {
                 />
 
                 <TextField
-                    id="standard-basic"
+                    id="email"
                     label="Email"
                     name="email"
                     type="email"
@@ -80,7 +80,7 @@ export default function RegisterForm() {
                 />
 
                 <TextField
-                    id="standard-basic"
+                    id="password"
                     label="Password"
                     name="password"
                     type="password"
